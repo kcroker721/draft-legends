@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draft Legends · NBA Decades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🏀 Draft Legends</h1>
+    <p class="subtitle">Spin for a team · Draft a player · Go <strong>82–0</strong></p>
+  </header>
+
+  <main>
+
+    <!-- Lineup slots (always visible) -->
+    <div class="lineup-grid" id="lineup-grid">
+      <div class="lineup-slot" id="slot-PG" data-pos="PG">
+        <span class="ls-pos">PG</span>
+        <div class="ls-body">
+          <span class="ls-name">Point Guard</span>
+          <span class="ls-info"></span>
+        </div>
+      </div>
+      <div class="lineup-slot" id="slot-SG" data-pos="SG">
+        <span class="ls-pos">SG</span>
+        <div class="ls-body">
+          <span class="ls-name">Shooting Guard</span>
+          <span class="ls-info"></span>
+        </div>
+      </div>
+      <div class="lineup-slot" id="slot-SF" data-pos="SF">
+        <span class="ls-pos">SF</span>
+        <div class="ls-body">
+          <span class="ls-name">Small Forward</span>
+          <span class="ls-info"></span>
+        </div>
+      </div>
+      <div class="lineup-slot" id="slot-PF" data-pos="PF">
+        <span class="ls-pos">PF</span>
+        <div class="ls-body">
+          <span class="ls-name">Power Forward</span>
+          <span class="ls-info"></span>
+        </div>
+      </div>
+      <div class="lineup-slot" id="slot-C" data-pos="C">
+        <span class="ls-pos">C</span>
+        <div class="ls-body">
+          <span class="ls-name">Center</span>
+          <span class="ls-info"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spin controls -->
+    <div id="spin-area">
+      <div id="spin-badges" style="display:none">
+        <span class="decade-badge" id="spin-decade"></span>
+        <span class="team-badge"   id="spin-team"></span>
+      </div>
+      <div class="spin-row">
+        <button class="spin-btn"   id="spin-btn"   onclick="spin()">🎲 Spin</button>
+        <button class="respin-btn" id="respin-btn" onclick="reSpin()" style="display:none">↺ Re-spin</button>
+      </div>
+    </div>
+
+    <!-- Roster (shown after spin) -->
+    <div id="roster-section" style="display:none">
+      <p class="section-label">Pick a player to add to your lineup</p>
+      <div class="roster-grid" id="roster-grid"></div>
+    </div>
+
+    <!-- Next pick / season buttons -->
+    <button class="next-btn" id="continue-btn" style="display:none" onclick="continueGame()">
+      Next Pick →
+    </button>
+    <button class="next-btn" id="season-btn" style="display:none" onclick="showResult()">
+      Simulate Season →
+    </button>
+
+    <!-- Result screen -->
+    <div id="result-section" style="display:none" class="result-screen">
+      <div class="result-emoji"  id="result-emoji">🏆</div>
+      <div class="result-record" id="result-record">82–0</div>
+      <div class="result-tier"   id="result-tier"></div>
+      <p   class="result-flavor" id="result-flavor"></p>
+      <div class="result-lineup" id="result-lineup"></div>
+      <button class="next-btn"   onclick="resetGame()">New Season</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Stats are per-game averages from each player's best weighted season in that decade.</p>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
